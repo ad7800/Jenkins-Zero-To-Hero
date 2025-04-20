@@ -9,6 +9,7 @@ pipeline {
     stage('Checkout') {
       steps {
         git branch: 'main', url: 'https://github.com/ad7800/Jenkins-Zero-To-Hero.git'
+        checkout scm
         sh 'echo passed'
       }
     }
