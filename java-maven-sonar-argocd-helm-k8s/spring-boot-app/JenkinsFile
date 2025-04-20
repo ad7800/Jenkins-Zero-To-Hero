@@ -54,7 +54,7 @@ pipeline {
         steps {
             withCredentials([string(credentialsId: 'github', variable: 'GITHUB_TOKEN')]) {
                 sh '''
-                    git init
+                    git rev-parse --is-inside-work-tree || echo "Not a git"
                     GIT_CURL_VERBOSE=2  GIT_TRACE=1 git config user.email "arnesh93d@gmail.com"
                     GIT_CURL_VERBOSE=2  GIT_TRACE=1 git config user.name "ad7800"
                     BUILD_NUMBER=${BUILD_NUMBER}
